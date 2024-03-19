@@ -9,10 +9,11 @@ import java.net.http.HttpResponse;
 
 public class RedeemListenerRunner implements Runnable {
     private final RedeemerService redeemerService;
-    private final Gson gson = new Gson();
+    private final Gson gson;
 
-    public RedeemListenerRunner(RedeemerService redeemerService) {
+    public RedeemListenerRunner(RedeemerService redeemerService, Gson gson) {
         this.redeemerService = redeemerService;
+        this.gson = gson;
     }
 
     @Override

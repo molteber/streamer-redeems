@@ -1,5 +1,6 @@
 package com.streamerredeems;
 
+import com.google.gson.Gson;
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
@@ -30,6 +31,9 @@ public class StreamerRedeemsPlugin extends Plugin {
 
     @Inject
     private StreamerRedeemsConfig config;
+
+    @Inject
+    private Gson gson;
 
     private Thread thread;
 
@@ -69,7 +73,7 @@ public class StreamerRedeemsPlugin extends Plugin {
 
         RedeemListenerRunner runner;
         try {
-            runner = new RedeemListenerRunner(new RedeemerService(config, client, clientThread));
+            runner = new RedeemListenerRunner(new RedeemerService(config, client, clientThread), gson);
         } catch (URISyntaxException e) {
             log.error("Invalid URL. Will not connect");
             throw new RuntimeException(e);
