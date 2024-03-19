@@ -47,7 +47,7 @@ public class CollectionLogRedeem implements IRedeem {
             interfaceManager.notificationWidget = client.getWidget(INTERFACE_ID, 1);
 
             var collectionLogItem = event.message == null || event.message.isBlank() ? "Bazinga!" : Text.escapeJagex(event.message);
-            client.runScript(SCRIPT_ID, "Collection log", "New item: <br><br><col=ffffff>" + collectionLogItem + "</col>", -1);
+            client.runScript(SCRIPT_ID, "Collection log ", "New item: <br><br><col=ffffff>" + collectionLogItem + "</col>", -1);
 
             StringBuilder logChatMessage = new StringBuilder("You have a funny feeling like you're being pranked");
             if (event.redeemedBy != null && !event.redeemedBy.isBlank()) {
